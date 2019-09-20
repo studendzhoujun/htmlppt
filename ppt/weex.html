@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>weex</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<style>
+	  .bg{
+        background:url(./images/bg1.png) no-repeat;
+		background-position:right bottom;
+	  }
+	</style>
+
+	<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal bg">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
+				<h1>weex</h1>
+				<p>
+					<small>Created by <a href="https://studendzhoujun.github.io/">zhoujun</a></small>
+				</p>
+			</section>
+
+			<section>
+				<section>
+					<h2>什么是weex ?</h2>
+					<ol>
+						<li class="fragment">一个跨平台的解决方案</li>
+						<li class="fragment">使用流行的web开发体验来开发高性能原生应用的框架</li>
+						<li class="fragment">通过web开发语言来构建Android，ios，web应用</li>
+						<li class="fragment">一套代码多端运行</li>
+					</ol>
+					<p class="fragment" style="font-size:20px; text-align:left;">ps: 我们只需要在自己的APP中嵌入Weex的SDK，就可以用HTML/CSS/JavaScript来开发Native级别的UI界面。</p>
+					<p class="fragment" style="font-size:20px; text-align: left;">ps: 解决了频繁发版和多端研发两大痛点</p>
+				</section>
+                <section>
+					    <h4>谁在使用</h4>
+						<img width="800" height="600" data-src="./images/use.jpg" alt="Down arrow">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>weex中的前端框架</h2>
+				</section>
+			    <section>
+				   <!-- <p class="fragment">贴近前端生态</p> -->
+					<img width="700" height="300" data-src="./images/vuerax.png" alt="Down arrow">
+					<p class="fragment" style="font-size:20px;">Vue.js 是一个不断进化中的前端框架</p>
+					<p class="fragment" style="font-size:20px;">Rax提供类React语法和兼容性的前端框架</p>
+					<p class="fragment" style="font-size:20px;">Weex 拥抱已有的 Web 生态，你可以使用现代化的前端技术开发移动应用。</p>
+					<p class="fragment" style="font-size:20px;"> Weex 支持了最常用 CSS 样式以及最流行的前端框架，在未来或许还可以支持更多。</p>
+				</section>
+				<section>
+					<h2 class="fragment" style="color:aquamarine">JS Framework</h2>
+					<p>weex 为什么能支持多个前端框架，又能跨平台渲染 ?</p>
+				</section>
+				<section>
+					<img width="700" height="300" data-src="./images/wx-4.png" alt="Down arrow">
+					<p class="fragment"  style="font-size:24px;">JS Framework 介于前端框架和原生渲染引擎之间，处于承上启下的位置</p>
+					<p class="fragment"  style="font-size:24px;"> Vue 和 Rax 对 Weex 而言只属于语法层，或者称之为 DSL (Domain Specific Language)</p>
+					<p class="fragment" style="font-size:24px;"> Vue 和 Rax 都是用来描述页面结构以及开发范式的</p>
+					<p class="fragment" style="font-size:24px;">最终都会通过JS Framework 提供的接口来调用原生功能去渲染真实 UI</p>
+				</section>
+				<section>
+					<h2>用vue.js来进行移动端应用的开发</h2>
+					<p>需要的前置条件:</p>
+					<p class="fragment grow">1.vue的基础知识</p>
+					<p class="fragment grow">2.会安装node和使用npm进行包管理</p>
+					<p>3.会基本的 <span class="fragment highlight-red">html</span> <span class="fragment highlight-blue">css</span> <span class="fragment highlight-green">javaScript</span>知识</p>
+					<p class="fragment fade-up">4.按照weex提供的基础组件,内置模块来开发</p>
+				</section>
+				<section>
+                    <h2>组件</h2>
+				</section>
+				<section data-markdown>
+						<script type="text/template">
+							```
+							  # <div>
+							  # <div>是通用容器
+							```
+							```
+* 不要在 <div> 中直接添加文本，而要使用 <text> 组件。
+* 在 Weex 中，<div> 不可滚动。
+* 要控制 <div> 的层级，建议不要超过14层，否则会很影响页面性能
+
+							```
+							```
+							   # 子组件
+							```
+							```
+							   * <div> 支持各种类型的子元素，包括 <div> 自己。
+							```
+						</script>		
+				</section>
+				<section data-markdown>
+						<script type="text/template">
+							```
+							  # <text>
+							  # <text> 是 Weex 内置的组件，用来将文本按照指定的样式渲染出来.
+							```
+							```
+* <text> 里直接写文本头尾空白会被过滤，如果需要保留头尾空白字符，暂时只能通过数据绑定的方式
+
+							```
+							```
+							   # 子组件
+							```
+							```
+							   * 不支持子组件。
+							```
+						</script>		
+				</section>
+				<section data-markdown>
+						<script type="text/template">
+							```
+							  # <image>
+							  # <image> 用于在界面中显示单个图片。
+							```
+							```
+* 在代码中请使用 <image> 标签
+* <image> 必须指定样式中的宽度和高度
+
+							```
+							```
+							   # 子组件
+							```
+							```
+							* 不支持子组件。
+							```
+						</script>		
+				</section>
+				<section>
+					<ol>
+						<li class="fragment">list--提供垂直列表功能的核心组件,适用于长列表的展示</li>
+						<li class="fragment">scroller--一个滚动容器组件</li>
+						<li class="fragment">slider--轮播组件</li>
+						<li class="fragment">waterfall-瀑布流组件</li>
+						<li class="fragment">video--页面中嵌入视频</li>
+					</ol>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h5>内置模块</h5>
+				</section>
+				<section  style="text-align: left;"> 
+				 <p>animation</p>
+				 <p style="font-size:20px;"><span style="color:rgb(236, 167, 17)">animation </span>模块可以用来在组件上执行动画。Animation可以对组件执行一系列简单的变换 (位置、大小、旋转角度、背景颜色等)</p>
+				 <pre>
+					 <code>
+animation.transition(ref1, {
+ styles: {
+  backgroundColor: '#FF0000',
+  transform: 'translate(250px, 100px)',
+ },
+  duration: 800, //ms
+  timingFunction: 'ease',
+  needLayout:false,
+  delay: 0 //ms
+}, function () {
+  modal.toast({ message: 'animation finished.' })
+})
+						</code>
+					</pre>
+				</section>
+				<section style="text-align: left;">
+				   <p>modal</p>
+				   <p style="font-size:20px;"><span style="color:rgb(236, 167, 17)">modal </span>模块提供了以下展示消息框的 API：<span style="color:aqua;">toast、alert、confirm </span>和 <span style="color:aqua;">prompt</span></p>
+				   <pre>
+					   <code>
+var modal = weex.requireModule('modal')
+modal.toast({
+  message: 'This is a toast',
+  duration: 0.3
+})
+					   </code>
+				   </pre>
+				   <pre>
+						<code>
+var modal = weex.requireModule('modal')
+modal.alert({
+  message: 'This is a alert',
+  okTitle: '确认'
+}, function () {
+  console.log('alert callback')
+})
+						</code>
+					</pre>      
+				</section>
+				<section style="text-align: left;">
+					<p>stream</p>
+					<p style="font-size:20px;"><span style="color:rgb(236, 167, 17)">stream </span>模块提供了基本的网络请求能,例如 <span style="color:aqua">GET POST </span>请求等，用于在组件的生命周期内与服务端进行交互</p>
+<pre>
+	<code>
+stream.fetch({
+  method: 'GET',
+  url: API,
+  type:'json'
+}, function(res) {
+  if(res){
+   modal.toast({
+    message: 'Network ok!',
+    duration: 3
+   });
+  }
+});
+	</code>
+</pre>
+				</section>
+				<section>
+					<ol>
+						<li class="fragment">clipboard</li>
+						<li class="fragment">navigator</li>
+						<li class="fragment">storage</li>
+						<li class="fragment">picker</li>
+						<li class="fragment">webview</li>
+					</ol>
+				</section>
+				<section>
+						<p>了解完以上这些 我们就可以愉快的开发了</p>
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+					<h2>开发环境</h2>
+					<p>weex提供了weex-toolkit 脚手架工具</p>
+					<p>需要安装node.js和Weex Cli</p>
+					<p>weex -v //查看当前weex工具版本</p>
+					<p>weex create xxxx //创建项目</p>
+					<p>weex run ios //ios 模拟器预览</p>
+					<p>weex run android //Android 模拟器预览</p>
+					<p>weex run web //web 端预览</p>
+
+					<script type="text/template">
+						```
+						  # 开发环境
+						  # weex提供了weex-toolkit 脚手架工具
+						  # 需要安装node.js
+						```
+						```
+						   weex -v //查看当前weex工具版本
+						```
+						```
+						   weex create xxxx //创建项目
+						```
+						```
+						   weex run ios //ios 模拟器预览
+						```
+						
+						```
+						   weex run android  // Android 模拟器预览
+						```
+						```
+						   weex run web //web 端预览
+						```
+					</script>		
+				</section>
+				<section>
+						<h2>mcp-kit</h2>
+						<img width="450" height="600" data-src="./images/wx-3.jpg" alt="Down arrow">			
+				</section>
+				<section>
+<pre>
+ <code>
+npm install mcp-kit -g   // 安装mcp脚手架
+ </code>
+</pre>
+					<pre>
+						<code>
+mcp -v           //查看当前脚手架工具版本号
+mcp -h           //查看当前脚手架全部命令
+mcp create xxx   //创建xxx项目
+mcp install      //安装项目依赖
+mcp start        //本地启动项目
+mcp build        //打包
+						</code>
+					</pre>	
+			   </section>
+			</section>
+
+			<section>
+				<section>
+					<h2>weex初体验</h2>
+					<img width="500" height="400" data-src="./images/wx-2.jpg" alt="Down arrow">
+					<img width="400" height="600" data-src="./images/wx-1.jpg" alt="Down arrow">
+				</section>
+				<section>
+					<h2>weex例子</h2>
+					<p class="fragment" style="color:#090">车抵贷-首页</p>
+				</section>
+				<section data-background-video="./images/video2.mp4"
+				 data-background-color="#000000">
+			    </section>
+			</section>
+
+             <section>
+				 <section>
+					 <h2>weex工作流</h2>
+				 </section>
+				 <section>
+					<img width="900" height="700" data-src="./images/weex.jpg" alt="Down arrow">	
+				 </section>
+			</section>
+
+			<section>
+				<h2>weex的优缺点</h2>
+				<ul>
+					<li>
+					  <p class="fragment blue" style="color:#090">一套代码三端运行</p>
+					</li>
+					<li>
+						<p class="fragment blue" style="color:#090">高性能的原生体验</p>
+					</li>
+					<li>
+					  <p class="fragment blue" style="color:#090">页面快速渲染</p>
+					</li>
+					<li>
+							<p class="fragment blue" style="color:#090">热更新</p>
+					</li>
+				</ul>
+				<ol>
+					<li>
+						<p class="fragment blue" style="color:red">社区活跃度较低</p>
+					</li>
+					<li>
+						<p class="fragment blue" style="color:red">兼容性</p>
+					</li>
+					<li>
+						<p class="fragment blue" style="color:red">开发较麻烦</p>
+					</li>
+				</ol>
+			</section>
+			<!-- table -->
+			<section>
+				<h2>各大跨平台框架比较</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>框架</th>
+							<th>引擎</th>
+							<th>语言</th>
+							<th>重度</th>
+							<th>上手</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Flutter</td>
+							<td>Flutter engine</td>
+							<td>Dart</td>
+							<td>重</td>
+							<td>难</td>
+						</tr>
+						<tr>
+							<td>Weex</td>
+							<td>JSCORE</td>
+							<td>vue,Rax</td>
+							<td>一般</td>
+							<td>较易</td>
+						</tr>
+						<tr>
+							<td>React Native</td>
+							<td>JS V8</td>
+							<td>React</td>
+							<td>较重</td>
+							<td>一般</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+            <!-- end -->
+			<section style="text-align: left;">
+				<h1>THE END</h1>
+				<p>
+					- <a href="http://editor.weex.io/">Try the online editor</a> <br> - <a href="https://github.com/apache/incubator-weex">Source code &amp; documentation</a>
+				</p>
+			</section>
+			<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+				<h2>... and GIFs!</h2>
+			</section>
+		</div>
+
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+
+</body>
+
+</html>
